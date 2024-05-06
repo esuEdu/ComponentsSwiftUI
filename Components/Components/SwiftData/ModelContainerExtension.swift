@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftData
-
+ 
 extension ModelContainer {
     
     static let appContainer: ModelContainer = {

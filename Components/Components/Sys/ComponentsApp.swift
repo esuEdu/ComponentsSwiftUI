@@ -7,14 +7,12 @@
 
 import SwiftUI
 import SwiftData
-
+ 
 @main
 struct ComponentsApp: App {
-    @State var coordinator = Coordinator()
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .environment(coordinator)
                 .swiftDataManagerModifier(.appContainer)
         }
     }

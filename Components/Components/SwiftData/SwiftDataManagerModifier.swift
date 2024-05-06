@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 import SwiftData
-
+ 
 struct SwiftDataManagerModifier: ViewModifier {
-    var modelContainer: ModelContainer = .appContainer
+    var modelContainer: ModelContainer
     
     func body(content: Content) -> some View {
         content

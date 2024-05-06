@@ -12,7 +12,11 @@ struct ProfileView: View {
     
     @Environment(SwiftDataManager.self) var swiftDataManager
     
-    @Bindable private var viewModel = ProfileViewModel()
+    @Environment(Navigation.self) var coordinator
+    
+    @Bindable var viewModel: ProfileViewModel
+    
+    @State var text: String = "bbb"
     
     var body: some View {
         Form {
@@ -48,6 +52,14 @@ struct ProfileView: View {
                 Text("Female").tag(Gender.Female)
             }
             .pickerStyle(SegmentedPickerStyle())
+            
+            Section {
+                Button(action: {
+                    coordinator.push(.lavaLamp($text), type: .sheet)
+                }, label: {
+                    Text("Button")
+                })
+            }
         }
         .onAppear(perform: {
             viewModel.modelManager = swiftDataManager
@@ -57,11 +69,8 @@ struct ProfileView: View {
 }
 
 #Preview {
-
-    let modelContainer: ModelContainer = .previewContainer
     
-    return NavigationStack {
-        ProfileView()
-            .swiftDataManagerModifier(modelContainer)
-    }
+    let modelContainer: ModelContainer = .previewContainer
+    return NavigationRoot(.profile)
+        .swiftDataManagerModifier(modelContainer)
 }
