@@ -20,7 +20,7 @@ struct HomeView: View {
             
             Text(profile.name)
             Button(action: {
-                coordinator.push(.profile, type: .sheet)
+                coordinator.push(.profile, type: .link)
             } ,label: {
                 Text("Profile")
             })
@@ -47,3 +47,4 @@ struct HomeView: View {
     return NavigationRoot(.home)
             .swiftDataManagerModifier(modelContainer)
 }
+

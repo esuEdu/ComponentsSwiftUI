@@ -22,6 +22,7 @@ enum Destination: View {
                 HomeView()
             case .profile:
                 ProfileView(viewModel: ProfileViewModel())
+                    .transition(.scale)
             case .lavaLamp(let text):
                 LavaLampView(text: text)
             case .list:
